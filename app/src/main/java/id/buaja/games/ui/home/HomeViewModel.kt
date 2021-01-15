@@ -20,7 +20,7 @@ class HomeViewModel(private val useCase: GamesUseCase): ViewModel() {
             useCase.getDevelopers().collect {
                 when(it) {
                     is Resource.Loading -> {
-                        Timber.d("Loading")
+                        Timber.d("Loadingggg")
                     }
 
                     is Resource.Success -> {
