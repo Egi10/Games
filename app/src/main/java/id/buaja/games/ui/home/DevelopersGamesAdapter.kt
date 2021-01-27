@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import id.buaja.core.domain.model.DevelopersEntity
+import id.buaja.core.domain.model.DevelopersGameModel
 import id.buaja.games.R
 import id.buaja.games.databinding.ItemListDevelopersGameBinding
 
@@ -17,8 +17,8 @@ import id.buaja.games.databinding.ItemListDevelopersGameBinding
 
 
 class DevelopersGamesAdapter(
-    private val data: List<DevelopersEntity>,
-    private val listener: (DevelopersEntity) -> Unit
+    private val data: List<DevelopersGameModel>,
+    private val listener: (DevelopersGameModel) -> Unit
 ) :
     RecyclerView.Adapter<DevelopersGamesAdapter.ViewHolder>() {
 
@@ -38,7 +38,7 @@ class DevelopersGamesAdapter(
 
     class ViewHolder(private val binding: ItemListDevelopersGameBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: DevelopersEntity, listener: (DevelopersEntity) -> Unit) {
+        fun bind(item: DevelopersGameModel, listener: (DevelopersGameModel) -> Unit) {
             with(binding) {
 
                 ivImage.load(item.imageBackground) {

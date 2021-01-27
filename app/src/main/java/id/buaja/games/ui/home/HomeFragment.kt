@@ -4,7 +4,7 @@ import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.buaja.core.base.BaseFragment
-import id.buaja.core.domain.model.DevelopersEntity
+import id.buaja.core.domain.model.DevelopersGameModel
 import id.buaja.games.R
 import id.buaja.games.databinding.FragmentHomeBinding
 import id.buaja.games.utils.PeekingLinearLayoutManager
@@ -17,7 +17,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val binding by viewBinding<FragmentHomeBinding>()
 
     private lateinit var adapterDevelopers: DevelopersGamesAdapter
-    private val listDevelopers: MutableList<DevelopersEntity> = mutableListOf()
+    private val listDevelopers: MutableList<DevelopersGameModel> = mutableListOf()
 
     override fun initObservable() {
         with(viewModel) {

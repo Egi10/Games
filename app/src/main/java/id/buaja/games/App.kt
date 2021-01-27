@@ -1,6 +1,7 @@
 package id.buaja.games
 
 import android.app.Application
+import id.buaja.core.di.databaseModule
 import id.buaja.core.di.networkModule
 import id.buaja.core.di.repositoryModule
 import id.buaja.games.di.useCaseModule
@@ -29,7 +30,8 @@ class App : Application() {
                     networkModule,
                     repositoryModule,
                     useCaseModule,
-                    viewModelModule
+                    viewModelModule,
+                    databaseModule
                 )
             )
         }

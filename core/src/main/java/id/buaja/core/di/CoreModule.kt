@@ -1,6 +1,10 @@
 package id.buaja.core.di
 
+import androidx.room.Room
 import id.buaja.core.data.GamesRepositoryImpl
+import id.buaja.core.data.source.local.LocalDataSource
+import id.buaja.core.data.source.local.room.GamesDao
+import id.buaja.core.data.source.local.room.GamesDatabase
 import id.buaja.core.data.source.remote.RemoteDataSource
 import id.buaja.core.data.source.remote.network.ApiGamesService
 import id.buaja.core.domain.repository.GamesRepository
@@ -14,6 +18,17 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by Julsapargi Nursam on 12/17/20.
  */
+
+val databaseModule = module {
+    factory {
+        get<GamesDatabase>().gamesDao()
+    }
+    single {
+        Room.databaseBuilder(
+            get(), GamesDatabase::class.java, "Games.db"
+        ).fallbackToDestructiveMigration().build()
+    }
+}
 
 val networkModule = module {
     single {
@@ -35,9 +50,12 @@ val networkModule = module {
 
 val repositoryModule = module {
     single {
+        LocalDataSource(get())
+    }
+    single {
         RemoteDataSource(get())
     }
     single<GamesRepository> {
-        GamesRepositoryImpl(get())
+        GamesRepositoryImpl(get(), get())
     }
 }

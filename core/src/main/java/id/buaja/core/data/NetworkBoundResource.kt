@@ -2,11 +2,11 @@ package id.buaja.core.data
 
 import id.buaja.core.data.source.remote.network.ApiResponse
 import kotlinx.coroutines.flow.*
-import timber.log.Timber
 
 /**
  * Created by Julsapargi Nursam on 12/18/20.
  */
+
 abstract class NetworkBoundResource<ResultType, RequestType> {
 
     private var result: Flow<Resource<ResultType>> = flow {
@@ -26,10 +26,15 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                     })
                 }
                 is ApiResponse.Error -> {
-                    onFetchFailed()
+                    // Sending Error
                     emit(
                         Resource.Error<ResultType>(apiResponse.errorMessage)
                     )
+
+                    // Show All Database Room
+                    emitAll(loadFromDB().map {
+                        Resource.Success(it)
+                    })
                 }
             }
         } else {
@@ -38,8 +43,6 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
             })
         }
     }
-
-    protected open fun onFetchFailed() {}
 
     protected abstract fun loadFromDB(): Flow<ResultType>
 
