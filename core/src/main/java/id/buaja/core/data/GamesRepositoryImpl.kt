@@ -49,7 +49,8 @@ class GamesRepositoryImpl(
                         imageBackground = it.imageBackground,
                         id = it.id,
                         name = it.name,
-                        slug = it.slug
+                        slug = it.slug,
+                        sizeGame = it.games?.size ?: 0
                     )
                     list.add(developersEntity)
                 }

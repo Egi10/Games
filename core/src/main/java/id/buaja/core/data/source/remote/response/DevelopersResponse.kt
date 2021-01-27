@@ -26,7 +26,7 @@ data class ResultsItem(
 	val name: String? = null,
 
 	@field:SerializedName("games")
-	val games: List<GamesItem?>? = null,
+	val games: List<GamesItem>? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,

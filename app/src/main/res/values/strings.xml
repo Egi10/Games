@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Games</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="developers_game">Developers Game</string>
+    <string name="see_details">See Details</string>
+    <string name="jml_games">Number of Games %s</string>
 </resources>

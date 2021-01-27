@@ -7,5 +7,6 @@ data class DevelopersEntity(
     val imageBackground: String? = null,
     val id: Int? = null,
     val name: String? = null,
-    val slug: String? = null
+    val slug: String? = null,
+    val sizeGame: Int? = null
 )

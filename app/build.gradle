@@ -24,12 +24,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -47,4 +53,8 @@ dependencies {
 
     // Core
     implementation project(":core")
+    // Coil
+    implementation 'io.coil-kt:coil:1.1.1'
+    // ViewBinding Delegate
+    implementation 'com.github.yogacp:android-viewbinding:1.0.2'
 }
