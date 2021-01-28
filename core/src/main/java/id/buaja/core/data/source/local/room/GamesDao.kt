@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import id.buaja.core.data.source.local.entity.DevelopersGameEntity
+import id.buaja.core.data.source.local.entity.GamesEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -18,4 +19,10 @@ interface GamesDao {
 
     @Query("Select * from developers_games ORDER BY _id DESC")
     fun getAllDevelopersGame(): Flow<List<DevelopersGameEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertGames(games: List<GamesEntity>)
+
+    @Query("Select * from games_table")
+    fun getAllGames(): Flow<List<GamesEntity>>
 }

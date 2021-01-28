@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:scrollbars="vertical"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <!-- Guideline -->
         <androidx.constraintlayout.widget.Guideline
@@ -52,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +64,33 @@
             tools:listitem="@layout/item_list_developers_game" />
 
         <!-- Games -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title_games"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/games_title"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStar"
+            app:layout_constraintTop_toBottomOf="@id/rv_developers_game" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_games"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_games"
+            tools:listitem="@layout/item_list_games" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

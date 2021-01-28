@@ -1,8 +1,11 @@
 package id.buaja.core.utils
 
 import id.buaja.core.data.source.local.entity.DevelopersGameEntity
+import id.buaja.core.data.source.local.entity.GamesEntity
 import id.buaja.core.data.source.remote.response.ResultsItem
+import id.buaja.core.data.source.remote.response.ResultsItems
 import id.buaja.core.domain.model.DevelopersGameModel
+import id.buaja.core.domain.model.GamesModel
 
 /**
  * Created by Julsapargi Nursam on 12/18/20.
@@ -38,5 +41,29 @@ object DataMapper {
         }
 
         return developersList
+    }
+
+    fun mapResponseToEntityGames(list: List<ResultsItems>?) : List<GamesEntity> {
+        val newList = ArrayList<GamesEntity>()
+        list?.map {
+            val gamesEntity = GamesEntity(
+                id = it.id,
+                backgroundImage = it.backgroundImage
+            )
+            newList.add(gamesEntity)
+        }
+        return newList
+    }
+
+    fun mapEntityToDomainGames(list: List<GamesEntity>?) : List<GamesModel> {
+        val newList = ArrayList<GamesModel>()
+        list?.map {
+            val gamesModel = GamesModel(
+                id = it.id,
+                backgroundImage = it.backgroundImage
+            )
+            newList.add(gamesModel)
+        }
+        return newList
     }
 }

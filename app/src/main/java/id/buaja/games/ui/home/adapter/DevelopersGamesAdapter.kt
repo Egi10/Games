@@ -1,7 +1,5 @@
-package id.buaja.games.ui.home
+package id.buaja.games.ui.home.adapter
 
-import android.content.Context
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +8,7 @@ import coil.transform.RoundedCornersTransformation
 import id.buaja.core.domain.model.DevelopersGameModel
 import id.buaja.games.R
 import id.buaja.games.databinding.ItemListDevelopersGameBinding
+import id.buaja.games.utils.dipToPx
 
 /**
  * Created by Julsapargi Nursam on 1/27/21.
@@ -44,8 +43,8 @@ class DevelopersGamesAdapter(
                 ivImage.load(item.imageBackground) {
                     transformations(
                         RoundedCornersTransformation(
-                            bottomLeft = dipToPx(ivImage.context, 15f),
-                            bottomRight = dipToPx(ivImage.context, 15f)
+                            bottomLeft = 15f.dipToPx(ivImage.context),
+                            bottomRight = 15f.dipToPx(ivImage.context)
                         )
                     )
                     placeholder(R.drawable.empty)
@@ -58,16 +57,6 @@ class DevelopersGamesAdapter(
                     listener(item)
                 }
             }
-        }
-    }
-
-    companion object {
-        fun dipToPx(context: Context, dip: Float): Float {
-            return TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dip,
-                context.resources.displayMetrics
-            )
         }
     }
 }
