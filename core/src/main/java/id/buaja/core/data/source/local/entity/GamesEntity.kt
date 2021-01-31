@@ -15,5 +15,11 @@ data class GamesEntity(
     val id: Int? = null,
 
     @ColumnInfo(name = "background_image")
-    val backgroundImage: String? = null
+    val backgroundImage: String? = null,
+
+    @ColumnInfo(name = "title")
+    val title: String? = null,
+
+    @ColumnInfo(name = "reviews_count")
+    val reviewsCount: Int? = null
 )

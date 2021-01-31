@@ -6,5 +6,7 @@ package id.buaja.core.domain.model
 
 data class GamesModel(
     val id: Int? = null,
-    val backgroundImage: String? = null
+    val backgroundImage: String? = null,
+    val title: String? = null,
+    val reviewCount: Int? = null
 )

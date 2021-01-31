@@ -35,16 +35,19 @@ class GamesAdapter(private val data: List<GamesModel>, private val listener: (Ga
                 ivImage.load(item.backgroundImage) {
                     transformations(
                         RoundedCornersTransformation(
-                            bottomLeft = 15f.dipToPx(ivImage.context),
-                            bottomRight = 15f.dipToPx(ivImage.context),
-                            topLeft = 15f.dipToPx(ivImage.context),
-                            topRight = 15f.dipToPx(ivImage.context)
+                            bottomLeft = 10f.dipToPx(ivImage.context),
+                            bottomRight = 10f.dipToPx(ivImage.context),
+                            topLeft = 10f.dipToPx(ivImage.context),
+                            topRight = 10f.dipToPx(ivImage.context)
                         )
                     )
                     placeholder(R.drawable.empty)
                 }
 
-                ivImage.setOnClickListener {
+                tvTitle.text = item.title
+                tvReview.text = String.format("%s Reviews Count", item.reviewCount)
+
+                container.setOnClickListener {
                     listener(item)
                 }
             }

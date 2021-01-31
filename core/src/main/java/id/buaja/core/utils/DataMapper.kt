@@ -11,7 +11,7 @@ import id.buaja.core.domain.model.GamesModel
  * Created by Julsapargi Nursam on 12/18/20.
  */
 object DataMapper {
-    fun mapResponsesToEntities(list: List<ResultsItem>?) : List<DevelopersGameEntity> {
+    fun mapResponsesToEntities(list: List<ResultsItem>?): List<DevelopersGameEntity> {
         val developersList = ArrayList<DevelopersGameEntity>()
         list?.map {
             val developersEntity = DevelopersGameEntity(
@@ -27,7 +27,7 @@ object DataMapper {
         return developersList
     }
 
-    fun mapEntitiesToDomain(list: List<DevelopersGameEntity>?) : List<DevelopersGameModel> {
+    fun mapEntitiesToDomain(list: List<DevelopersGameEntity>?): List<DevelopersGameModel> {
         val developersList = ArrayList<DevelopersGameModel>()
         list?.map {
             val developersEntity = DevelopersGameModel(
@@ -43,24 +43,28 @@ object DataMapper {
         return developersList
     }
 
-    fun mapResponseToEntityGames(list: List<ResultsItems>?) : List<GamesEntity> {
+    fun mapResponseToEntityGames(list: List<ResultsItems>?): List<GamesEntity> {
         val newList = ArrayList<GamesEntity>()
         list?.map {
             val gamesEntity = GamesEntity(
                 id = it.id,
-                backgroundImage = it.backgroundImage
+                backgroundImage = it.backgroundImage,
+                title = it.name,
+                reviewsCount = it.reviewsCount
             )
             newList.add(gamesEntity)
         }
         return newList
     }
 
-    fun mapEntityToDomainGames(list: List<GamesEntity>?) : List<GamesModel> {
+    fun mapEntityToDomainGames(list: List<GamesEntity>?): List<GamesModel> {
         val newList = ArrayList<GamesModel>()
         list?.map {
             val gamesModel = GamesModel(
                 id = it.id,
-                backgroundImage = it.backgroundImage
+                backgroundImage = it.backgroundImage,
+                title = it.title,
+                reviewCount = it.reviewsCount
             )
             newList.add(gamesModel)
         }

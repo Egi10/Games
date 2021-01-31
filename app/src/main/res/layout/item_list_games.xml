@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="8sp"
+    android:layout_marginTop="13dp"
+    android:layout_marginEnd="13sp"
     android:layout_marginBottom="8dp">
 
     <ImageView
@@ -15,11 +16,41 @@
         android:layout_height="0dp"
         android:contentDescription="@string/jml_games"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="W, 1:1.5"
+        app:layout_constraintBottom_toTopOf="@id/tv_title"
+        app:layout_constraintDimensionRatio="W, 1:1.3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         tools:src="@color/purple_500" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tv_review"
+        app:layout_constraintEnd_toEndOf="@id/iv_image"
+        app:layout_constraintStart_toStartOf="@id/iv_image"
+        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        tools:text="GTA" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_review"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/iv_image"
+        app:layout_constraintStart_toStartOf="@id/iv_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="Viewers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

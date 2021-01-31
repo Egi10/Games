@@ -34,18 +34,30 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="16dp" />
 
+        <!-- Favorite -->
+        <ImageButton
+            android:id="@+id/ib_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/jml_games"
+            android:src="@drawable/ic_star"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintTop_toTopOf="@id/guidelineTop" />
+
         <!-- Developers -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_title_developers_game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="@string/developers_game"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintRight_toRightOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStar"
-            app:layout_constraintTop_toTopOf="@id/guidelineTop" />
+            app:layout_constraintTop_toBottomOf="@id/ib_favorite" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_developers_game"
@@ -81,7 +93,7 @@
             android:id="@+id/rv_games"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:clipToPadding="false"
             android:nestedScrollingEnabled="false"
             android:paddingStart="6dp"
