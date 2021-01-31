@@ -28,6 +28,9 @@ class HomeViewModel(private val useCase: GamesUseCase) : ViewModel() {
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> get() = _loading
 
+    private val _loadingGames = MutableLiveData<Boolean>()
+    val loadingGames: LiveData<Boolean> get() = _loadingGames
+
     fun getDevelopers() {
         viewModelScope.launch(Dispatchers.Main) {
             useCase.getDevelopers().collect {
@@ -54,11 +57,11 @@ class HomeViewModel(private val useCase: GamesUseCase) : ViewModel() {
             useCase.getGames().collect {
                 when (it) {
                     is Resource.Loading -> {
-                        _loading.value = true
+                        _loadingGames.value = true
                     }
 
                     is Resource.Success -> {
-                        _loading.value = false
+                        _loadingGames.value = false
                         _games.postValue(it.data)
                     }
 

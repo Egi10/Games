@@ -9,5 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="id.buaja.games.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailDeveloperGamesFragment"
+            app:destination="@id/detailDeveloperGamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailDeveloperGamesFragment"
+        android:name="id.buaja.games.ui.detail.developergames.DetailDeveloperGamesFragment"
+        android:label="fragment_detail_developer_games"
+        tools:layout="@layout/fragment_detail_developer_games" />
 </navigation>

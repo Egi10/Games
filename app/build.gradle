@@ -57,4 +57,6 @@ dependencies {
     implementation 'io.coil-kt:coil:1.1.1'
     // ViewBinding Delegate
     implementation 'com.github.yogacp:android-viewbinding:1.0.2'
+    // Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 }

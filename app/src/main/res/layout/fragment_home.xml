@@ -46,6 +46,24 @@
             app:layout_constraintTop_toTopOf="@id/guidelineTop" />
 
         <!-- Developers -->
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_developers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tv_title_developers_game, rv_developers_game" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_developers_game"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStar"
+            app:layout_constraintTop_toBottomOf="@id/ib_favorite">
+
+            <include layout="@layout/placeholder_developers_games" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_title_developers_game"
             android:layout_width="wrap_content"
@@ -58,6 +76,7 @@
             app:layout_constraintRight_toRightOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStar"
             app:layout_constraintTop_toBottomOf="@id/ib_favorite" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_developers_game"
@@ -76,6 +95,24 @@
             tools:listitem="@layout/item_list_developers_game" />
 
         <!-- Games -->
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_games"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tv_title_games, rv_games" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_games"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStar"
+            app:layout_constraintTop_toBottomOf="@id/shimmer_developers_game">
+
+            <include layout="@layout/placeholder_games" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_title_games"
             android:layout_width="wrap_content"

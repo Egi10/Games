@@ -29,7 +29,43 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     override fun initObservable() {
         with(viewModel) {
             loading.observe(this@HomeFragment, {
+                when (it) {
+                    true -> {
+                        binding.apply {
+                            shimmerDevelopersGame.startShimmerAnimation()
+                            shimmerDevelopersGame.visibility = View.VISIBLE
+                            groupDevelopers.visibility = View.GONE
+                        }
+                    }
 
+                    false -> {
+                        binding.apply {
+                            shimmerDevelopersGame.stopShimmerAnimation()
+                            shimmerDevelopersGame.visibility = View.INVISIBLE
+                            groupDevelopers.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            })
+
+            loadingGames.observe(this@HomeFragment, {
+                when (it) {
+                    true -> {
+                        binding.apply {
+                            shimmerGames.startShimmerAnimation()
+                            shimmerGames.visibility = View.VISIBLE
+                            groupGames.visibility = View.GONE
+                        }
+                    }
+
+                    false -> {
+                        binding.apply {
+                            shimmerGames.stopShimmerAnimation()
+                            shimmerGames.visibility = View.INVISIBLE
+                            groupGames.visibility = View.VISIBLE
+                        }
+                    }
+                }
             })
 
             developersGame.observe(this@HomeFragment, {
