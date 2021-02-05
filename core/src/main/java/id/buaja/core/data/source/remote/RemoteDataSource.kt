@@ -3,6 +3,7 @@ package id.buaja.core.data.source.remote
 import id.buaja.core.data.source.remote.network.ApiGamesService
 import id.buaja.core.data.source.remote.network.ApiResponse
 import id.buaja.core.data.source.remote.response.DevelopersResponse
+import id.buaja.core.data.source.remote.response.GamesDetailResponse
 import id.buaja.core.data.source.remote.response.GamesResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -29,6 +30,17 @@ class RemoteDataSource(private val apiGamesService: ApiGamesService) {
         return flow {
             try {
                 val response = apiGamesService.getGames()
+                emit(ApiResponse.Success(response))
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getDetailGames(id: Int?): Flow<ApiResponse<GamesDetailResponse>> {
+        return flow {
+            try {
+                val response = apiGamesService.getDetailGames(id)
                 emit(ApiResponse.Success(response))
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.message.toString()))

@@ -1,7 +1,9 @@
 package id.buaja.games.ui.home
 
+import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.buaja.core.base.BaseFragment
@@ -9,6 +11,7 @@ import id.buaja.core.domain.model.DevelopersGameModel
 import id.buaja.core.domain.model.GamesModel
 import id.buaja.games.R
 import id.buaja.games.databinding.FragmentHomeBinding
+import id.buaja.games.ui.detail.DetailGamesFragment
 import id.buaja.games.ui.home.adapter.DevelopersGamesAdapter
 import id.buaja.games.ui.home.adapter.GamesAdapter
 import id.buaja.games.utils.PeekingLinearLayoutManager
@@ -92,7 +95,12 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         // Set Adapter Games
         gamesAdapter = GamesAdapter(listGames) {
-
+            val bundle = Bundle()
+            it.id?.let { it1 -> bundle.putInt(DetailGamesFragment.ID_GAMES, it1) }
+            findNavController().navigate(
+                R.id.action_homeFragment_to_detailDeveloperGamesFragment,
+                bundle
+            )
         }
 
         with(binding) {

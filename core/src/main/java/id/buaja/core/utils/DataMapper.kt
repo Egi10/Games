@@ -2,9 +2,11 @@ package id.buaja.core.utils
 
 import id.buaja.core.data.source.local.entity.DevelopersGameEntity
 import id.buaja.core.data.source.local.entity.GamesEntity
+import id.buaja.core.data.source.remote.response.GamesDetailResponse
 import id.buaja.core.data.source.remote.response.ResultsItem
 import id.buaja.core.data.source.remote.response.ResultsItems
 import id.buaja.core.domain.model.DevelopersGameModel
+import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.core.domain.model.GamesModel
 
 /**
@@ -69,5 +71,15 @@ object DataMapper {
             newList.add(gamesModel)
         }
         return newList
+    }
+
+    fun mapResponseToEntityDetailGames(detailResponse: GamesDetailResponse): GamesDetailModel {
+        return GamesDetailModel(
+            id = detailResponse.id,
+            backgroundImage = detailResponse.backgroundImage,
+            genre = detailResponse.genres?.first()?.name,
+            nameGame = detailResponse.name,
+            description = detailResponse.description
+        )
     }
 }

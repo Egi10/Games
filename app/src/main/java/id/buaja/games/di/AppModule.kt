@@ -2,6 +2,7 @@ package id.buaja.games.di
 
 import id.buaja.core.domain.usescase.GameUseCaseImpl
 import id.buaja.core.domain.usescase.GamesUseCase
+import id.buaja.games.ui.detail.DetailGamesViewModel
 import id.buaja.games.ui.home.HomeViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -19,5 +20,8 @@ val useCaseModule = module {
 val viewModelModule = module {
     viewModel {
         HomeViewModel(get())
+    }
+    viewModel {
+        DetailGamesViewModel(get())
     }
 }

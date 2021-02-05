@@ -4,12 +4,15 @@ import id.buaja.core.data.source.local.LocalDataSource
 import id.buaja.core.data.source.remote.RemoteDataSource
 import id.buaja.core.data.source.remote.network.ApiResponse
 import id.buaja.core.data.source.remote.response.DevelopersResponse
+import id.buaja.core.data.source.remote.response.GamesDetailResponse
 import id.buaja.core.data.source.remote.response.GamesResponse
 import id.buaja.core.domain.model.DevelopersGameModel
+import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.core.domain.model.GamesModel
 import id.buaja.core.domain.repository.GamesRepository
 import id.buaja.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 
 /**
@@ -56,6 +59,14 @@ class GamesRepositoryImpl(
                 val result = DataMapper.mapResponseToEntityGames(data.results)
                 localDataSource.insertGames(result)
             }
+
+        }.asFlow()
+
+    override fun getGamesDetail(id: Int?): Flow<Resource<GamesDetailModel>> =
+        object : NetworkOnlyBoundResource<GamesDetailModel, GamesDetailResponse>() {
+            override suspend fun createCall(): Flow<ApiResponse<GamesDetailResponse>> = remoteDataSource.getDetailGames(id)
+
+            override fun loadData(data: GamesDetailResponse): GamesDetailModel = DataMapper.mapResponseToEntityDetailGames(data)
 
         }.asFlow()
 }
