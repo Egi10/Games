@@ -35,13 +35,19 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
             })
 
             loading.observe(this@DetailGamesFragment, {
-                when(it) {
+                when (it) {
                     true -> {
-
+                        binding.apply {
+                            shimmerDetail.startShimmerAnimation()
+                            shimmerDetail.visibility = View.VISIBLE
+                        }
                     }
 
                     false -> {
-
+                        binding.apply {
+                            shimmerDetail.stopShimmerAnimation()
+                            shimmerDetail.visibility = View.GONE
+                        }
                     }
                 }
             })

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <View
+        android:id="@+id/iv_image_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/gainsboro_dddddd"
+        app:layout_constraintBottom_toTopOf="@id/guideline_end_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="450dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="35dp" />
+
+    <View
+        android:id="@+id/tv_genre"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="@color/gainsboro_dddddd"
+        android:layout_marginTop="20dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/guideline_end_image" />
+
+    <View
+        android:id="@+id/tv_name_game"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/gainsboro_dddddd"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_genre" />
+
+    <View
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="@color/gainsboro_dddddd"
+        android:layout_marginTop="15dp"
+        android:lineSpacingExtra="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_game" />
+
+    <View
+        android:id="@+id/view_description_1"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="@color/gainsboro_dddddd"
+        android:layout_marginTop="15dp"
+        android:lineSpacingExtra="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_description"/>
+
+    <View
+        android:id="@+id/view_description_2"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="@color/gainsboro_dddddd"
+        android:layout_marginTop="15dp"
+        android:lineSpacingExtra="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/view_description_1" />
+
+    <View
+        android:id="@+id/view_description_3"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="@color/gainsboro_dddddd"
+        android:layout_marginTop="15dp"
+        android:lineSpacingExtra="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/view_description_2" />
+
+    <View
+        android:id="@+id/view_description_4"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="@color/gainsboro_dddddd"
+        android:layout_marginTop="15dp"
+        android:lineSpacingExtra="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/view_description_3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
