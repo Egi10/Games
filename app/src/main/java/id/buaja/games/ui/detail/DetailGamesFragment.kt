@@ -54,7 +54,7 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
         binding.apply {
             btnBack.setOnClickListener {
                 back()
-            }s
+            }
         }
     }
 
@@ -63,7 +63,7 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
     }
 
     private fun back() {
-        findNavController().popBackStack()
+        findNavController().popBackStack(R.id.homeFragment, false)
     }
 
     companion object {
