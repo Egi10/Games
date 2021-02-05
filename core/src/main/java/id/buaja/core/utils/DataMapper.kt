@@ -19,7 +19,7 @@ object DataMapper {
                 id = it.id,
                 name = it.name,
                 slug = it.slug,
-                sizeGame = it.games?.size
+                sizeGame = it.gamesCount
             )
             developersList.add(developersEntity)
         }

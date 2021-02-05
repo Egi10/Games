@@ -31,6 +31,11 @@ class HomeViewModel(private val useCase: GamesUseCase) : ViewModel() {
     private val _loadingGames = MutableLiveData<Boolean>()
     val loadingGames: LiveData<Boolean> get() = _loadingGames
 
+    init {
+        getDevelopers()
+        getGames()
+    }
+
     fun getDevelopers() {
         viewModelScope.launch(Dispatchers.Main) {
             useCase.getDevelopers().collect {

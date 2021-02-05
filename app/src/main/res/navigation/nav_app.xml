@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailDeveloperGamesFragment"
-        android:name="id.buaja.games.ui.detail.developergames.DetailDeveloperGamesFragment"
+        android:name="id.buaja.games.ui.detail.DetailGamesFragment"
         android:label="fragment_detail_developer_games"
-        tools:layout="@layout/fragment_detail_developer_games" />
+        tools:layout="@layout/fragment_detail_games" />
 </navigation>

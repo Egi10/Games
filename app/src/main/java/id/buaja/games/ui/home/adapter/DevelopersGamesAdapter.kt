@@ -16,10 +16,8 @@ import id.buaja.games.utils.dipToPx
 
 
 class DevelopersGamesAdapter(
-    private val data: List<DevelopersGameModel>,
-    private val listener: (DevelopersGameModel) -> Unit
-) :
-    RecyclerView.Adapter<DevelopersGamesAdapter.ViewHolder>() {
+    private val data: List<DevelopersGameModel>
+) : RecyclerView.Adapter<DevelopersGamesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(
@@ -33,11 +31,11 @@ class DevelopersGamesAdapter(
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
-        holder.bind(data[position], listener)
+        holder.bind(data[position])
 
     class ViewHolder(private val binding: ItemListDevelopersGameBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: DevelopersGameModel, listener: (DevelopersGameModel) -> Unit) {
+        fun bind(item: DevelopersGameModel) {
             with(binding) {
 
                 ivImage.load(item.imageBackground) {
@@ -52,10 +50,6 @@ class DevelopersGamesAdapter(
                 tvNameDevelopersGame.text = item.name
                 tvTotalsGame.text =
                     tvTotalsGame.context.getString(R.string.jml_games, item.sizeGame.toString())
-
-                btnDetails.setOnClickListener {
-                    listener(item)
-                }
             }
         }
     }

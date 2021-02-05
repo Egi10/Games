@@ -5,4 +5,7 @@
     <string name="see_details">See Details</string>
     <string name="jml_games">Number of Games %s</string>
     <string name="games_title">Games</string>
+    <string name="details_game_developers">Here are the game developers</string>
+    <string name="favorite">Favorite</string>
+    <string name="show_favorite_games">Show Favorite Games</string>
 </resources>

@@ -53,7 +53,7 @@
             android:ellipsize="end"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@id/btn_details"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guidelineStar"
             app:layout_constraintTop_toBottomOf="@id/iv_image"
             tools:text="Games Developers" />
@@ -68,19 +68,5 @@
             app:layout_constraintStart_toStartOf="@id/guidelineStar"
             app:layout_constraintTop_toBottomOf="@id/tv_name_developers_game"
             tools:text="Jumlah Game" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:minHeight="38dp"
-            android:text="@string/see_details"
-            android:textAllCaps="false"
-            android:textSize="14sp"
-            app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -36,6 +36,17 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <View
+        android:id="@+id/view_sub_title"
+        android:layout_width="150dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/gainsboro_dddddd"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/view_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
         android:id="@+id/view_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -44,7 +55,7 @@
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_title"/>
+        app:layout_constraintTop_toBottomOf="@id/view_sub_title"/>
 
     <View
         android:id="@+id/view_text_1"

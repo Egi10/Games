@@ -87,15 +87,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     }
 
     override fun initView(view: View) {
-        viewModel.apply {
-            getDevelopers()
-            getGames()
-        }
-
         // Set Adapter
-        adapterDevelopers = DevelopersGamesAdapter(listDevelopers) {
-
-        }
+        adapterDevelopers = DevelopersGamesAdapter(listDevelopers)
 
         // Set Adapter Games
         gamesAdapter = GamesAdapter(listGames) {

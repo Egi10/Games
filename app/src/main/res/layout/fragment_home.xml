@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <!-- Guideline -->
         <androidx.constraintlayout.widget.Guideline
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="30dp" />
+            app:layout_constraintGuide_begin="20dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineStar"
@@ -34,32 +34,22 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="16dp" />
 
-        <!-- Favorite -->
-        <ImageButton
-            android:id="@+id/ib_favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/jml_games"
-            android:src="@drawable/ic_star"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintTop_toTopOf="@id/guidelineTop" />
-
         <!-- Developers -->
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group_developers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="tv_title_developers_game, rv_developers_game" />
+            app:constraint_referenced_ids="tv_title_developers_game, rv_developers_game, tv_sub_title_developers_game" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_developers_game"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStar"
-            app:layout_constraintTop_toBottomOf="@id/ib_favorite">
+            app:layout_constraintTop_toBottomOf="@id/guidelineTop">
 
             <include layout="@layout/placeholder_developers_games" />
         </com.facebook.shimmer.ShimmerFrameLayout>
@@ -68,15 +58,22 @@
             android:id="@+id/tv_title_developers_game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:text="@string/developers_game"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintRight_toRightOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStar"
-            app:layout_constraintTop_toBottomOf="@id/ib_favorite" />
+            app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_sub_title_developers_game"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/details_game_developers"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStar"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_developers_game" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_developers_game"
@@ -89,23 +86,30 @@
             android:paddingEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_developers_game"
+            app:layout_constraintTop_toBottomOf="@id/tv_sub_title_developers_game"
             tools:ignore="RtlSymmetry"
             tools:itemCount="1"
             tools:listitem="@layout/item_list_developers_game" />
+
+        <!-- Favorite Games -->
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/group_favorite" />
 
         <!-- Games -->
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group_games"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="tv_title_games, rv_games" />
+            app:constraint_referenced_ids="tv_title_games, rv_games, tv_show_favorite_game" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_games"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="65dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStar"
             app:layout_constraintTop_toBottomOf="@id/shimmer_developers_game">
@@ -115,16 +119,26 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_title_games"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/games_title"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintRight_toRightOf="@id/guidelineEnd"
+            app:layout_constraintEnd_toStartOf="@id/tv_show_favorite_game"
             app:layout_constraintStart_toStartOf="@id/guidelineStar"
             app:layout_constraintTop_toBottomOf="@id/rv_developers_game" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_show_favorite_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_favorite_games"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintTop_toTopOf="@id/tv_title_games"
+            app:layout_constraintBottom_toBottomOf="@id/tv_title_games"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_games"
