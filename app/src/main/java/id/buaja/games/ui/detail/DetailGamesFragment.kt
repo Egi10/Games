@@ -4,9 +4,12 @@ import android.os.Build
 import android.text.Html
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import coil.load
 import id.buaja.core.base.BaseFragment
+import id.buaja.core.domain.model.FavoriteModel
+import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.games.R
 import id.buaja.games.databinding.FragmentDetailGamesBinding
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -15,9 +18,21 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
     private val binding by viewBinding<FragmentDetailGamesBinding>()
     private val viewModel by viewModel<DetailGamesViewModel>()
 
+    private var id: Int? = null
+    private var backgroundImage: String? = null
+    private var genre: String? = null
+    private var nameGame: String? = null
+    private var description: String? = null
+
     override fun initObservable() {
         with(viewModel) {
             success.observe(this@DetailGamesFragment, {
+                id = it.id
+                backgroundImage = it.backgroundImage
+                genre = it.genre
+                nameGame = it.nameGame
+                description = it.description
+
                 binding.apply {
                     ivImageBackground.load(it.backgroundImage)
                     tvGenre.text = it.genre
@@ -58,6 +73,19 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
         viewModel.getGamesDetail(arguments?.getInt(ID_GAMES))
 
         binding.apply {
+            btnFavorite.setOnClickListener {
+                val favoriteModel = GamesDetailModel(
+                    id = id,
+                    backgroundImage = backgroundImage,
+                    nameGame = nameGame,
+                    genre = genre,
+                    description = description
+                )
+                viewModel.insertFavorite(favoriteModel)
+
+                Toast.makeText(requireContext(), "Data Ditambahkan Ke Favorite", Toast.LENGTH_SHORT).show()
+            }
+
             btnBack.setOnClickListener {
                 back()
             }

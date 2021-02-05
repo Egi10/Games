@@ -1,11 +1,13 @@
 package id.buaja.core.utils
 
 import id.buaja.core.data.source.local.entity.DevelopersGameEntity
+import id.buaja.core.data.source.local.entity.FavoriteEntity
 import id.buaja.core.data.source.local.entity.GamesEntity
 import id.buaja.core.data.source.remote.response.GamesDetailResponse
 import id.buaja.core.data.source.remote.response.ResultsItem
 import id.buaja.core.data.source.remote.response.ResultsItems
 import id.buaja.core.domain.model.DevelopersGameModel
+import id.buaja.core.domain.model.FavoriteModel
 import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.core.domain.model.GamesModel
 
@@ -82,4 +84,12 @@ object DataMapper {
             description = detailResponse.description
         )
     }
+
+    fun mapDomainToEntityFavorite(favoriteModel: GamesDetailModel) = FavoriteEntity(
+        id = favoriteModel.id,
+        backgroundImage = favoriteModel.backgroundImage,
+        nameGame = favoriteModel.nameGame,
+        genre = favoriteModel.genre,
+        description = favoriteModel.description
+    )
 }

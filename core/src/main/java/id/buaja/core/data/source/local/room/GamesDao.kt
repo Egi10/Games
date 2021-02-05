@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import id.buaja.core.data.source.local.entity.DevelopersGameEntity
+import id.buaja.core.data.source.local.entity.FavoriteEntity
 import id.buaja.core.data.source.local.entity.GamesEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -25,4 +26,7 @@ interface GamesDao {
 
     @Query("Select * from games_table")
     fun getAllGames(): Flow<List<GamesEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertFavorite(favorite: FavoriteEntity)
 }

@@ -42,4 +42,8 @@ class DetailGamesViewModel(private val useCase: GamesUseCase) : ViewModel() {
             }
         }
     }
+
+    fun insertFavorite(gamesDetailModel: GamesDetailModel) {
+        useCase.insertFavorite(gamesDetailModel)
+    }
 }

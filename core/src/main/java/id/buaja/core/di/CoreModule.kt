@@ -8,6 +8,7 @@ import id.buaja.core.data.source.local.room.GamesDatabase
 import id.buaja.core.data.source.remote.RemoteDataSource
 import id.buaja.core.data.source.remote.network.ApiGamesService
 import id.buaja.core.domain.repository.GamesRepository
+import id.buaja.core.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -56,6 +57,7 @@ val repositoryModule = module {
         RemoteDataSource(get())
     }
     single<GamesRepository> {
-        GamesRepositoryImpl(get(), get())
+        GamesRepositoryImpl(get(), get(),get())
     }
+    factory { AppExecutors() }
 }

@@ -1,6 +1,7 @@
 package id.buaja.core.data.source.local
 
 import id.buaja.core.data.source.local.entity.DevelopersGameEntity
+import id.buaja.core.data.source.local.entity.FavoriteEntity
 import id.buaja.core.data.source.local.entity.GamesEntity
 import id.buaja.core.data.source.local.room.GamesDao
 import kotlinx.coroutines.flow.Flow
@@ -18,4 +19,6 @@ class LocalDataSource(private val gamesDao: GamesDao) {
     suspend fun insertGames(games: List<GamesEntity>) = gamesDao.insertGames(games)
 
     fun getAllGames(): Flow<List<GamesEntity>> = gamesDao.getAllGames()
+
+    fun insertFavorite(favoriteEntity: FavoriteEntity) = gamesDao.insertFavorite(favoriteEntity)
 }

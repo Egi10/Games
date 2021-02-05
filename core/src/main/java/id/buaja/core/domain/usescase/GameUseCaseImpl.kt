@@ -15,5 +15,9 @@ class GameUseCaseImpl(private val repository: GamesRepository) : GamesUseCase {
         repository.getDevelopers()
 
     override fun getGames(): Flow<Resource<List<GamesModel>>> = repository.getGames()
-    override fun getGamesDetail(id: Int?): Flow<Resource<GamesDetailModel>> = repository.getGamesDetail(id)
+    override fun getGamesDetail(id: Int?): Flow<Resource<GamesDetailModel>> =
+        repository.getGamesDetail(id)
+
+    override fun insertFavorite(gamesDetailModel: GamesDetailModel) =
+        repository.insertFavorite(gamesDetailModel)
 }
