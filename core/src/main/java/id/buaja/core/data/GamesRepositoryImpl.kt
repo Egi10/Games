@@ -81,4 +81,9 @@ class GamesRepositoryImpl(
             localDataSource.insertFavorite(favoriteEntity)
         }
     }
+
+    override fun getAllFavorite(): Flow<List<FavoriteModel>> =
+        localDataSource.getAllFavorite().map {
+            DataMapper.mapEntityToDomainFavorite(it)
+        }
 }

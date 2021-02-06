@@ -29,4 +29,7 @@ interface GamesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFavorite(favorite: FavoriteEntity)
+
+    @Query("SELECT * FROM favorite")
+    fun getAllFavorite(): Flow<List<FavoriteEntity>>
 }

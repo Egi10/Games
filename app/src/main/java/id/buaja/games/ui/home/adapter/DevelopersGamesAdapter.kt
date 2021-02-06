@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import id.buaja.core.domain.model.DevelopersGameModel
+import id.buaja.core.utils.dipToPx
 import id.buaja.games.R
 import id.buaja.games.databinding.ItemListDevelopersGameBinding
-import id.buaja.games.utils.dipToPx
 
 /**
  * Created by Julsapargi Nursam on 1/27/21.

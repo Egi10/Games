@@ -1,4 +1,4 @@
-package id.buaja.games.utils
+package id.buaja.core.utils
 
 import android.content.Context
 import android.util.TypedValue

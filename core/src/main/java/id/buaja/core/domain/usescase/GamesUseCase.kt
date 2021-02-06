@@ -2,6 +2,7 @@ package id.buaja.core.domain.usescase
 
 import id.buaja.core.data.Resource
 import id.buaja.core.domain.model.DevelopersGameModel
+import id.buaja.core.domain.model.FavoriteModel
 import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.core.domain.model.GamesModel
 import kotlinx.coroutines.flow.Flow
@@ -14,4 +15,5 @@ interface GamesUseCase {
     fun getGames(): Flow<Resource<List<GamesModel>>>
     fun getGamesDetail(id: Int?): Flow<Resource<GamesDetailModel>>
     fun insertFavorite(gamesDetailModel: GamesDetailModel)
+    fun getAllFavorite(): Flow<List<FavoriteModel>>
 }

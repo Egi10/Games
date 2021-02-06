@@ -92,4 +92,19 @@ object DataMapper {
         genre = favoriteModel.genre,
         description = favoriteModel.description
     )
+
+    fun mapEntityToDomainFavorite(favoriteModel: List<FavoriteEntity>): List<FavoriteModel> {
+        val newList = ArrayList<FavoriteModel>()
+        favoriteModel.map {
+            val favorite = FavoriteModel(
+                id = it.id,
+                backgroundImage = it.backgroundImage,
+                nameGame = it.nameGame,
+                genre = it.genre,
+                description = it.description
+            )
+            newList.add(favorite)
+        }
+        return newList
+    }
 }

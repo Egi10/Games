@@ -1,26 +1,28 @@
-package id.buaja.games.ui.home.adapter
+package id.buaja.favorite.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import id.buaja.core.domain.model.GamesModel
+import id.buaja.core.domain.model.FavoriteModel
 import id.buaja.core.utils.dipToPx
-import id.buaja.games.R
-import id.buaja.games.databinding.ItemListGamesBinding
+import id.buaja.favorite.databinding.ItemListFavoriteBinding
 
 /**
- * Created by Julsapargi Nursam on 1/28/21.
+ * Created by Julsapargi Nursam on 2/6/21.
  */
 
 
-class GamesAdapter(private val data: List<GamesModel>, private val listener: (GamesModel) -> Unit) :
-    RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
+class FavoriteAdapter(
+    private val data: List<FavoriteModel>,
+    private val listener: (FavoriteModel) -> Unit
+) :
+    RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(
-            ItemListGamesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemListFavoriteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
 
     override fun getItemCount() = data.size
@@ -28,9 +30,9 @@ class GamesAdapter(private val data: List<GamesModel>, private val listener: (Ga
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(data[position], listener)
 
-    class ViewHolder(private val binding: ItemListGamesBinding) :
+    class ViewHolder(private val binding: ItemListFavoriteBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: GamesModel, listener: (GamesModel) -> Unit) {
+        fun bind(item: FavoriteModel, listener: (FavoriteModel) -> Unit) {
             with(binding) {
                 ivImage.load(item.backgroundImage) {
                     transformations(
@@ -41,15 +43,9 @@ class GamesAdapter(private val data: List<GamesModel>, private val listener: (Ga
                             topRight = 10f.dipToPx(ivImage.context)
                         )
                     )
-                    placeholder(R.drawable.empty)
                 }
-
-                tvTitle.text = item.title
-                tvReview.text = String.format("%s Reviews Count", item.reviewCount)
-
-                container.setOnClickListener {
-                    listener(item)
-                }
+                tvNameGame.text = item.nameGame
+                tvGenre.text = item.genre
             }
         }
     }

@@ -1,5 +1,7 @@
 package id.buaja.games.ui.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
@@ -115,6 +117,12 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             rvGames.adapter = gamesAdapter
             rvGames.setHasFixedSize(false)
             rvGames.isNestedScrollingEnabled = false
+
+            // To Favorite
+            tvShowFavoriteGame.setOnClickListener {
+                val uri = Uri.parse("gamesapp://favorite")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
+            }
         }
     }
 }

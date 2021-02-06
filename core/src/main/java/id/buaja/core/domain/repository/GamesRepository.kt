@@ -15,4 +15,5 @@ interface GamesRepository {
     fun getGames(): Flow<Resource<List<GamesModel>>>
     fun getGamesDetail(id: Int?): Flow<Resource<GamesDetailModel>>
     fun insertFavorite(favoriteModel: GamesDetailModel)
+    fun getAllFavorite(): Flow<List<FavoriteModel>>
 }

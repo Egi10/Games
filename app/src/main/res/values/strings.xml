@@ -8,4 +8,5 @@
     <string name="details_game_developers">Here are the game developers</string>
     <string name="favorite">Favorite</string>
     <string name="show_favorite_games">Show Favorite Games</string>
+    <string name="title_favorite">Module Title</string>
 </resources>

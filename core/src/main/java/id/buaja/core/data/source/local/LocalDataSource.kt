@@ -21,4 +21,6 @@ class LocalDataSource(private val gamesDao: GamesDao) {
     fun getAllGames(): Flow<List<GamesEntity>> = gamesDao.getAllGames()
 
     fun insertFavorite(favoriteEntity: FavoriteEntity) = gamesDao.insertFavorite(favoriteEntity)
+
+    fun getAllFavorite() = gamesDao.getAllFavorite()
 }

@@ -2,6 +2,7 @@ package id.buaja.core.domain.usescase
 
 import id.buaja.core.data.Resource
 import id.buaja.core.domain.model.DevelopersGameModel
+import id.buaja.core.domain.model.FavoriteModel
 import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.core.domain.model.GamesModel
 import id.buaja.core.domain.repository.GamesRepository
@@ -20,4 +21,6 @@ class GameUseCaseImpl(private val repository: GamesRepository) : GamesUseCase {
 
     override fun insertFavorite(gamesDetailModel: GamesDetailModel) =
         repository.insertFavorite(gamesDetailModel)
+
+    override fun getAllFavorite(): Flow<List<FavoriteModel>> = repository.getAllFavorite()
 }
