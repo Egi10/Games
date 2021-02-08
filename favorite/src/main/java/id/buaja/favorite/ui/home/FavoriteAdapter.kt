@@ -1,4 +1,4 @@
-package id.buaja.favorite.ui
+package id.buaja.favorite.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -46,6 +46,9 @@ class FavoriteAdapter(
                 }
                 tvNameGame.text = item.nameGame
                 tvGenre.text = item.genre
+                container.setOnClickListener {
+                    listener(item)
+                }
             }
         }
     }

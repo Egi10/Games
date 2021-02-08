@@ -7,7 +7,16 @@
 
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="id.buaja.favorite.ui.FavoriteFragment"
+        android:name="id.buaja.favorite.ui.home.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailFavoriteFragment"
+            app:destination="@id/detailFavoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFavoriteFragment"
+        android:name="id.buaja.favorite.ui.detail.DetailFavoriteFragment"
+        android:label="fragment_detail_favorite"
+        tools:layout="@layout/fragment_detail_favorite" />
 </navigation>

@@ -1,6 +1,6 @@
 package id.buaja.favorite.di
 
-import id.buaja.favorite.ui.FavoriteViewModel
+import id.buaja.favorite.ui.home.FavoriteViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

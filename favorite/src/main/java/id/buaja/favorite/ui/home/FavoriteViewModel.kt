@@ -1,4 +1,4 @@
-package id.buaja.favorite.ui
+package id.buaja.favorite.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
