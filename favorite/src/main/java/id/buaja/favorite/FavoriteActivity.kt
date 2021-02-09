@@ -9,6 +9,14 @@ import org.koin.core.context.loadKoinModules
 class FavoriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /**
+         * Load Koin Modules Meanggil Inject di Module Lain Setelah startKoin
+         */
+        loadKoinModules(favoriteModule)
+
+        /**
+         * Set View
+         */
         setContentView(R.layout.activity_favorite)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

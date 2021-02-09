@@ -26,7 +26,6 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
     private val list: MutableList<FavoriteModel> = mutableListOf()
 
     override fun initObservable() {
-        loadKoinModules(favoriteModule)
         with(viewModel) {
             favorite.observe(this@FavoriteFragment, {
                 list.clear()
@@ -36,6 +35,7 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
 
             empty.observe(this@FavoriteFragment, {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                adapter.notifyDataSetChanged()
             })
         }
     }

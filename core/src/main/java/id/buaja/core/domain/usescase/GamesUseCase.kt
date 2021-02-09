@@ -16,4 +16,5 @@ interface GamesUseCase {
     fun getGamesDetail(id: Int?): Flow<Resource<GamesDetailModel>>
     fun insertFavorite(gamesDetailModel: GamesDetailModel)
     fun getAllFavorite(): Flow<List<FavoriteModel>>
+    fun deleteFavoriteId(id: Int?)
 }

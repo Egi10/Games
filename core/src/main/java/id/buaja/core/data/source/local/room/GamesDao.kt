@@ -1,9 +1,6 @@
 package id.buaja.core.data.source.local.room
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import id.buaja.core.data.source.local.entity.DevelopersGameEntity
 import id.buaja.core.data.source.local.entity.FavoriteEntity
 import id.buaja.core.data.source.local.entity.GamesEntity
@@ -32,4 +29,7 @@ interface GamesDao {
 
     @Query("SELECT * FROM favorite")
     fun getAllFavorite(): Flow<List<FavoriteEntity>>
+
+    @Query("DELETE FROM favorite WHERE _id = :id")
+    fun deleteFavoriteId(id: Int?)
 }

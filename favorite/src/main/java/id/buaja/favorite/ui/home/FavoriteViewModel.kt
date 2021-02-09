@@ -28,6 +28,7 @@ class FavoriteViewModel(private val useCase: GamesUseCase) : ViewModel() {
                 useCase.getAllFavorite()
             }.collect {
                 if (it.isEmpty()) {
+                    _favorite.postValue(it)
                     _empty.value = "Data Favorite Masih Kosong"
                 } else {
                     _favorite.postValue(it)

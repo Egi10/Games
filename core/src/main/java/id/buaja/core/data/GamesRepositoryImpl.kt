@@ -86,4 +86,10 @@ class GamesRepositoryImpl(
         localDataSource.getAllFavorite().map {
             DataMapper.mapEntityToDomainFavorite(it)
         }
+
+    override fun deleteFavoriteId(id: Int?) {
+        appExecutors.diskIO().execute {
+            localDataSource.deleteFavoriteId(id)
+        }
+    }
 }

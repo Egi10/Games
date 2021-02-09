@@ -23,4 +23,6 @@ class LocalDataSource(private val gamesDao: GamesDao) {
     fun insertFavorite(favoriteEntity: FavoriteEntity) = gamesDao.insertFavorite(favoriteEntity)
 
     fun getAllFavorite() = gamesDao.getAllFavorite()
+
+    fun deleteFavoriteId(id: Int?) = gamesDao.deleteFavoriteId(id)
 }
