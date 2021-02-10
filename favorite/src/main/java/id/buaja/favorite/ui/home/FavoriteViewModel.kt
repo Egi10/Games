@@ -19,20 +19,12 @@ class FavoriteViewModel(private val useCase: GamesUseCase) : ViewModel() {
     private val _favorite = MutableLiveData<List<FavoriteModel>>()
     val favorite: LiveData<List<FavoriteModel>> get() = _favorite
 
-    private val _empty = MutableLiveData<String>()
-    val empty: LiveData<String> get() = _empty
-
     fun getFavorite() {
         viewModelScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
                 useCase.getAllFavorite()
             }.collect {
-                if (it.isEmpty()) {
-                    _favorite.postValue(it)
-                    _empty.value = "Data Favorite Masih Kosong"
-                } else {
-                    _favorite.postValue(it)
-                }
+                _favorite.postValue(it)
             }
         }
     }

@@ -58,4 +58,14 @@
         app:layout_constraintStart_toStartOf="@id/guideline_star"
         app:layout_constraintTop_toBottomOf="@id/tv_sub_title"
         tools:listitem="@layout/item_list_favorite" />
+
+    <include
+        android:id="@+id/view_empty"
+        layout="@layout/item_empty_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sub_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>
