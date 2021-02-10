@@ -1,159 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:scrollbars="vertical"
     tools:context=".ui.home.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Guideline -->
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineTop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="20dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineStar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="16dp" />
+            <!-- Guideline -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="20dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="16dp" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
-        <!-- Developers -->
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_developers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="tv_title_developers_game, rv_developers_game, tv_sub_title_developers_game" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmer_developers_game"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintStart_toStartOf="@id/guidelineStar"
-            app:layout_constraintTop_toBottomOf="@id/guidelineTop">
+            <!-- Developers -->
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_developers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tv_title_developers_game, rv_developers_game, tv_sub_title_developers_game" />
 
-            <include layout="@layout/placeholder_developers_games" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_developers_game"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStar"
+                app:layout_constraintTop_toBottomOf="@id/guidelineTop">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_title_developers_game"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/developers_game"
-            android:textColor="@android:color/black"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintRight_toRightOf="@id/guidelineEnd"
-            app:layout_constraintStart_toStartOf="@id/guidelineStar"
-            app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+                <include layout="@layout/placeholder_developers_games" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_sub_title_developers_game"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/details_game_developers"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintStart_toStartOf="@id/guidelineStar"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_developers_game" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_title_developers_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/developers_game"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintRight_toRightOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStar"
+                app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_developers_game"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:clipToPadding="false"
-            android:nestedScrollingEnabled="false"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_sub_title_developers_game"
-            tools:ignore="RtlSymmetry"
-            tools:itemCount="1"
-            tools:listitem="@layout/item_list_developers_game" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_sub_title_developers_game"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/details_game_developers"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStar"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_developers_game" />
 
-        <!-- Favorite Games -->
-        <androidx.constraintlayout.widget.Group
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/group_favorite" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_developers_game"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_sub_title_developers_game"
+                tools:ignore="RtlSymmetry"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_list_developers_game" />
 
-        <!-- Games -->
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_games"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="tv_title_games, rv_games, tv_show_favorite_game" />
+            <!-- Favorite Games -->
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmer_games"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintStart_toStartOf="@id/guidelineStar"
-            app:layout_constraintTop_toBottomOf="@id/shimmer_developers_game">
+            <!-- Games -->
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_games"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tv_title_games, rv_games, tv_show_favorite_game" />
 
-            <include layout="@layout/placeholder_games" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_games"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStar"
+                app:layout_constraintTop_toBottomOf="@id/shimmer_developers_game">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_title_games"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/games_title"
-            android:textColor="@android:color/black"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/tv_show_favorite_game"
-            app:layout_constraintStart_toStartOf="@id/guidelineStar"
-            app:layout_constraintTop_toBottomOf="@id/rv_developers_game" />
+                <include layout="@layout/placeholder_games" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_show_favorite_game"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/show_favorite_games"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintTop_toTopOf="@id/tv_title_games"
-            app:layout_constraintBottom_toBottomOf="@id/tv_title_games"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_title_games"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/games_title"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStar"
+                app:layout_constraintTop_toBottomOf="@id/rv_developers_game" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_games"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:clipToPadding="false"
-            android:nestedScrollingEnabled="false"
-            android:paddingStart="6dp"
-            android:paddingEnd="6dp"
-            android:paddingBottom="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_games"
-            tools:listitem="@layout/item_list_games" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_games"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_games"
+                tools:listitem="@layout/item_list_games" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/favorite"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:backgroundTint="@color/design_default_color_primary"
+        app:icon="@drawable/ic_love"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

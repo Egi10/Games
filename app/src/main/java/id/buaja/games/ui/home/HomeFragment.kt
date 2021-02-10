@@ -119,7 +119,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             rvGames.isNestedScrollingEnabled = false
 
             // To Favorite
-            tvShowFavoriteGame.setOnClickListener {
+            fabFavorite.setOnClickListener {
                 val uri = Uri.parse("gamesapp://favorite")
                 startActivity(Intent(Intent.ACTION_VIEW, uri))
             }
