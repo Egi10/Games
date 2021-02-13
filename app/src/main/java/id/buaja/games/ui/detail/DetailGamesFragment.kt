@@ -12,6 +12,7 @@ import id.buaja.core.domain.model.FavoriteModel
 import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.games.R
 import id.buaja.games.databinding.FragmentDetailGamesBinding
+import id.buaja.games.utils.setHtml
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
@@ -37,11 +38,7 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
                     ivImageBackground.load(it.backgroundImage)
                     tvGenre.text = it.genre
                     tvNameGame.text = it.nameGame
-                    tvDescription.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        Html.fromHtml(it.description, Html.FROM_HTML_MODE_COMPACT)
-                    } else {
-                        Html.fromHtml(it.description)
-                    }
+                    tvDescription.text = it.description?.setHtml()
                 }
             })
 
@@ -83,7 +80,8 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
                 )
                 viewModel.insertFavorite(favoriteModel)
 
-                Toast.makeText(requireContext(), "Data Ditambahkan Ke Favorite", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Data Ditambahkan Ke Favorite", Toast.LENGTH_SHORT)
+                    .show()
             }
 
             btnBack.setOnClickListener {
