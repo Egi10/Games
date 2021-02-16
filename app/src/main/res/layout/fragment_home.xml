@@ -110,7 +110,7 @@
                 android:id="@+id/group_games"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="tv_title_games, rv_games, tv_show_favorite_game" />
+                app:constraint_referenced_ids="tv_title_games, rv_games" />
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/shimmer_games"

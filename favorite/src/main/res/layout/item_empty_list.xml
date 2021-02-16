@@ -6,14 +6,14 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_start"
+        android:id="@+id/guideline_start_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="30dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_end"
+        android:id="@+id/guideline_end_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -26,15 +26,15 @@
         android:contentDescription="@string/favorite"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_empty"
-        app:layout_constraintBottom_toTopOf="@id/tv_title"
+        app:layout_constraintBottom_toTopOf="@id/tv_title_empty"
         app:layout_constraintDimensionRatio="1:0.5"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end_empty"
+        app:layout_constraintStart_toStartOf="@id/guideline_start_empty"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_title_empty"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -43,21 +43,21 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/tv_sub_title"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintBottom_toTopOf="@id/tv_sub_title_empty"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end_empty"
+        app:layout_constraintStart_toStartOf="@id/guideline_start_empty"
         app:layout_constraintTop_toBottomOf="@id/iv_image" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_sub_title"
+        android:id="@+id/tv_sub_title_empty"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/let_s_add_your_favorites_right_away"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        app:layout_constraintEnd_toEndOf="@id/guideline_end_empty"
+        app:layout_constraintStart_toStartOf="@id/guideline_start_empty"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_empty" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

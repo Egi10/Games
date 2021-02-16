@@ -3,7 +3,6 @@ package id.buaja.core.di
 import androidx.room.Room
 import id.buaja.core.data.GamesRepositoryImpl
 import id.buaja.core.data.source.local.LocalDataSource
-import id.buaja.core.data.source.local.room.GamesDao
 import id.buaja.core.data.source.local.room.GamesDatabase
 import id.buaja.core.data.source.remote.RemoteDataSource
 import id.buaja.core.data.source.remote.network.ApiGamesService

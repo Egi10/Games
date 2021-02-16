@@ -1,6 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="favorite_list_that_you_choose">Favorite list that you choose</string>
     <string name="delete_favorite">Delete Favorite</string>
     <string name="empty_favorites">Empty Favorites</string>

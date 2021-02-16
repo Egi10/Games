@@ -36,7 +36,7 @@ class HomeViewModel(private val useCase: GamesUseCase) : ViewModel() {
         getGames()
     }
 
-    fun getDevelopers() {
+    private fun getDevelopers() {
         viewModelScope.launch(Dispatchers.Main) {
             useCase.getDevelopers().collect {
                 when (it) {
@@ -57,7 +57,7 @@ class HomeViewModel(private val useCase: GamesUseCase) : ViewModel() {
         }
     }
 
-    fun getGames() {
+    private fun getGames() {
         viewModelScope.launch(Dispatchers.Main) {
             useCase.getGames().collect {
                 when (it) {

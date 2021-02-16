@@ -3,7 +3,6 @@ package id.buaja.core.data.source.remote.network
 import id.buaja.core.data.source.remote.response.DevelopersResponse
 import id.buaja.core.data.source.remote.response.GamesDetailResponse
 import id.buaja.core.data.source.remote.response.GamesResponse
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 

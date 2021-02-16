@@ -1,14 +1,11 @@
 package id.buaja.games.ui.detail
 
-import android.os.Build
-import android.text.Html
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import coil.load
 import id.buaja.core.base.BaseFragment
-import id.buaja.core.domain.model.FavoriteModel
 import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.games.R
 import id.buaja.games.databinding.FragmentDetailGamesBinding
