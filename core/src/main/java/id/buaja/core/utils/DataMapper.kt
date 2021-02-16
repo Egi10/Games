@@ -76,10 +76,14 @@ object DataMapper {
     }
 
     fun mapResponseToEntityDetailGames(detailResponse: GamesDetailResponse): GamesDetailModel {
+        val listGenre = ArrayList<String>()
+        detailResponse.genres?.map {
+            listGenre.add(it?.name.toString())
+        }
         return GamesDetailModel(
             id = detailResponse.id,
             backgroundImage = detailResponse.backgroundImage,
-            genre = detailResponse.genres?.first()?.name,
+            genre = listGenre.joinToString(separator = ", "),
             nameGame = detailResponse.name,
             description = detailResponse.description
         )
