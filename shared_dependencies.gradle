@@ -1,4 +1,6 @@
 dependencies {
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     // Koin Injection
     implementation "org.koin:koin-android-viewmodel:$koin_version"
     // Timber
