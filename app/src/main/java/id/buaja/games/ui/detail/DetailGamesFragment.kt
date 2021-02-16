@@ -47,14 +47,14 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
                 when (it) {
                     true -> {
                         binding.apply {
-                            shimmerDetail.startShimmerAnimation()
+                            shimmerDetail.startShimmer()
                             shimmerDetail.visibility = View.VISIBLE
                         }
                     }
 
                     false -> {
                         binding.apply {
-                            shimmerDetail.stopShimmerAnimation()
+                            shimmerDetail.stopShimmer()
                             shimmerDetail.visibility = View.GONE
                         }
                     }

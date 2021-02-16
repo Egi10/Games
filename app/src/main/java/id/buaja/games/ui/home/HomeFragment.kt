@@ -37,7 +37,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 when (it) {
                     true -> {
                         binding.apply {
-                            shimmerDevelopersGame.startShimmerAnimation()
+                            shimmerDevelopersGame.startShimmer()
                             shimmerDevelopersGame.visibility = View.VISIBLE
                             groupDevelopers.visibility = View.GONE
                         }
@@ -45,7 +45,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
                     false -> {
                         binding.apply {
-                            shimmerDevelopersGame.stopShimmerAnimation()
+                            shimmerDevelopersGame.stopShimmer()
                             shimmerDevelopersGame.visibility = View.INVISIBLE
                             groupDevelopers.visibility = View.VISIBLE
                         }
@@ -57,7 +57,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 when (it) {
                     true -> {
                         binding.apply {
-                            shimmerGames.startShimmerAnimation()
+                            shimmerGames.startShimmer()
                             shimmerGames.visibility = View.VISIBLE
                             groupGames.visibility = View.GONE
                         }
@@ -65,7 +65,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
                     false -> {
                         binding.apply {
-                            shimmerGames.stopShimmerAnimation()
+                            shimmerGames.stopShimmer()
                             shimmerGames.visibility = View.INVISIBLE
                             groupGames.visibility = View.VISIBLE
                         }
