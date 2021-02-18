@@ -8,6 +8,8 @@ import id.buaja.core.data.source.remote.RemoteDataSource
 import id.buaja.core.data.source.remote.network.ApiGamesService
 import id.buaja.core.domain.repository.GamesRepository
 import id.buaja.core.utils.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -24,9 +26,13 @@ val databaseModule = module {
         get<GamesDatabase>().gamesDao()
     }
     single {
+        val passphrase = SQLiteDatabase.getBytes("buaja.id".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             get(), GamesDatabase::class.java, "Games.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
@@ -56,7 +62,7 @@ val repositoryModule = module {
         RemoteDataSource(get())
     }
     single<GamesRepository> {
-        GamesRepositoryImpl(get(), get(),get())
+        GamesRepositoryImpl(get(), get(), get())
     }
     factory { AppExecutors() }
 }

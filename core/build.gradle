@@ -55,5 +55,8 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     // Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
+    // Encryption Room
+    implementation "net.zetetic:android-database-sqlcipher:4.4.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.1.0"
 
 }
