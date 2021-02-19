@@ -10,6 +10,7 @@ import id.buaja.core.domain.repository.GamesRepository
 import id.buaja.core.utils.AppExecutors
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -38,10 +39,20 @@ val databaseModule = module {
 
 val networkModule = module {
     single {
+        /**
+         * Cek Host Name di www.ssllabs.com/ssltest setelah itu
+         * hostName == Common names
+         * sha256 == pin SHA256
+         */
+        val hostName = "sni.cloudflaressl.com"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostName, "sha256/UGwY2lttaRoHnGd1gpeydmov1LzioQpzYTywtNSJkAU=")
+            .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
     single {
