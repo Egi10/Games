@@ -19,19 +19,19 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="30dp" />
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/iv_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/favorite"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_empty"
         app:layout_constraintBottom_toTopOf="@id/tv_title_empty"
         app:layout_constraintDimensionRatio="1:0.5"
         app:layout_constraintEnd_toEndOf="@id/guideline_end_empty"
         app:layout_constraintStart_toStartOf="@id/guideline_start_empty"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="empty_box.json"
+        app:lottie_loop="true" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title_empty"

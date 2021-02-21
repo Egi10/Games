@@ -1,7 +1,8 @@
 package id.buaja.games.ui.detail
 
+import android.view.LayoutInflater
 import android.view.View
-import android.viewbinding.library.fragment.viewBinding
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import coil.load
@@ -13,7 +14,8 @@ import id.buaja.games.utils.setHtml
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
-    private val binding by viewBinding<FragmentDetailGamesBinding>()
+    private var _binding: FragmentDetailGamesBinding? = null
+    private val binding get() = _binding!!
     private val viewModel by viewModel<DetailGamesViewModel>()
 
     private var id: Int? = null
@@ -63,6 +65,11 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
         }
     }
 
+    override fun createView(inflater: LayoutInflater, container: ViewGroup?): View {
+        _binding = FragmentDetailGamesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun initView(view: View) {
         viewModel.getGamesDetail(arguments?.getInt(ID_GAMES))
 
@@ -85,6 +92,10 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
                 back()
             }
         }
+    }
+
+    override fun destroyView() {
+        _binding = null
     }
 
     override fun onBackPressed() {

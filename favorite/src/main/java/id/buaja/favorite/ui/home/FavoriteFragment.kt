@@ -2,8 +2,9 @@ package id.buaja.favorite.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.viewbinding.library.fragment.viewBinding
+import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.buaja.core.base.BaseFragment
@@ -15,7 +16,8 @@ import id.buaja.games.ui.MainActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
-    private val binding by viewBinding<FragmentFavoriteBinding>()
+    private var _binding: FragmentFavoriteBinding? = null
+    private val binding get() = _binding!!
     private val viewModel by viewModel<FavoriteViewModel>()
 
     private lateinit var adapter: FavoriteAdapter
@@ -56,6 +58,16 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
             recyclerview.layoutManager = LinearLayoutManager(requireContext())
             recyclerview.adapter = adapter
         }
+    }
+
+    override fun createView(inflater: LayoutInflater, container: ViewGroup?): View {
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun destroyView() {
+        binding.recyclerview.adapter = null
+        _binding = null
     }
 
     override fun onBackPressed() {

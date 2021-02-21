@@ -3,8 +3,9 @@ package id.buaja.games.ui.home
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.viewbinding.library.fragment.viewBinding
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -24,7 +25,8 @@ import timber.log.Timber
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val viewModel by viewModel<HomeViewModel>()
 
-    private val binding by viewBinding<FragmentHomeBinding>()
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var adapterDevelopers: DevelopersGamesAdapter
     private val listDevelopers: MutableList<DevelopersGameModel> = mutableListOf()
@@ -126,5 +128,18 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 startActivity(Intent(Intent.ACTION_VIEW, uri))
             }
         }
+    }
+
+    override fun createView(inflater: LayoutInflater, container: ViewGroup?): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun destroyView() {
+        binding.apply {
+            rvDevelopersGame.adapter = null
+            rvGames.adapter = null
+        }
+        _binding = null
     }
 }

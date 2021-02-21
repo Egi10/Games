@@ -1,7 +1,8 @@
 package id.buaja.favorite.ui.detail
 
+import android.view.LayoutInflater
 import android.view.View
-import android.viewbinding.library.fragment.viewBinding
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import coil.load
@@ -13,7 +14,8 @@ import id.buaja.games.utils.setHtml
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailFavoriteFragment : BaseFragment(R.layout.fragment_detail_favorite) {
-    private val binding by viewBinding<FragmentDetailFavoriteBinding>()
+    private var _binding: FragmentDetailFavoriteBinding? = null
+    private val binding get() = _binding!!
     private val viewModel by viewModel<DetailFavoriteViewModel>()
 
     override fun initObservable() {
@@ -42,6 +44,15 @@ class DetailFavoriteFragment : BaseFragment(R.layout.fragment_detail_favorite) {
                 back()
             }
         }
+    }
+
+    override fun createView(inflater: LayoutInflater, container: ViewGroup?): View {
+        _binding = FragmentDetailFavoriteBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun destroyView() {
+        _binding = null
     }
 
     override fun onBackPressed() {

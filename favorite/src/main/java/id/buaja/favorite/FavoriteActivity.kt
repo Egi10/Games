@@ -14,11 +14,10 @@ class FavoriteActivity : AppCompatActivity() {
          */
         loadKoinModules(favoriteModule)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         /**
          * Set View
          */
         setContentView(R.layout.activity_favorite)
-
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }
