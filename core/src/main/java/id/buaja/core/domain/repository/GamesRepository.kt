@@ -17,4 +17,5 @@ interface GamesRepository {
     fun insertFavorite(favoriteModel: GamesDetailModel)
     fun getAllFavorite(): Flow<List<FavoriteModel>>
     fun deleteFavoriteId(id: Int?)
+    fun getFavoriteById(id: Int?): Flow<List<FavoriteModel>>
 }

@@ -91,4 +91,9 @@ class GamesRepositoryImpl(
             localDataSource.deleteFavoriteId(id)
         }
     }
+
+    override fun getFavoriteById(id: Int?): Flow<List<FavoriteModel>> =
+        localDataSource.getFavoriteById(id).map {
+            DataMapper.mapEntityToDomainFavorite(it)
+        }
 }

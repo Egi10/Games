@@ -32,4 +32,7 @@ interface GamesDao {
 
     @Query("DELETE FROM favorite WHERE _id = :id")
     fun deleteFavoriteId(id: Int?)
+
+    @Query("SELECT * FROM favorite WHERE _id = :id")
+    fun getFavoriteById(id: Int?): Flow<List<FavoriteEntity>>
 }

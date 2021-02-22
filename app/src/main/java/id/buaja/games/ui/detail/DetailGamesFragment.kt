@@ -12,6 +12,7 @@ import id.buaja.games.R
 import id.buaja.games.databinding.FragmentDetailGamesBinding
 import id.buaja.games.utils.setHtml
 import org.koin.android.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
     private var _binding: FragmentDetailGamesBinding? = null
@@ -41,11 +42,24 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
                 }
             })
 
-            error.observe(this@DetailGamesFragment, {
+            isFavorite.observe(this@DetailGamesFragment, {
+                binding.btnFavorite.text = if (it == true) {
+                    "Delete Favorite"
+                } else {
+                    "Favorite"
+                }
+            })
 
+            successDelete.observe(this@DetailGamesFragment, {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            })
+
+            error.observe(this@DetailGamesFragment, {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             })
 
             loading.observe(this@DetailGamesFragment, {
+                Timber.d("$it")
                 when (it) {
                     true -> {
                         binding.apply {
@@ -72,20 +86,11 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
 
     override fun initView(view: View) {
         viewModel.getGamesDetail(arguments?.getInt(ID_GAMES))
+        viewModel.checkFavorite(arguments?.getInt(ID_GAMES))
 
         binding.apply {
             btnFavorite.setOnClickListener {
-                val favoriteModel = GamesDetailModel(
-                    id = id,
-                    backgroundImage = backgroundImage,
-                    nameGame = nameGame,
-                    genre = genre,
-                    description = description
-                )
-                viewModel.insertFavorite(favoriteModel)
-
-                Toast.makeText(requireContext(), "Data Ditambahkan Ke Favorite", Toast.LENGTH_SHORT)
-                    .show()
+                checkFavorite()
             }
 
             btnBack.setOnClickListener {
@@ -104,6 +109,26 @@ class DetailGamesFragment : BaseFragment(R.layout.fragment_detail_games) {
 
     private fun back() {
         findNavController().popBackStack(R.id.homeFragment, false)
+    }
+
+    private fun checkFavorite() {
+        if (binding.btnFavorite.text == "Favorite") {
+            val favoriteModel = GamesDetailModel(
+                id = id,
+                backgroundImage = backgroundImage,
+                nameGame = nameGame,
+                genre = genre,
+                description = description
+            )
+            viewModel.insertFavorite(favoriteModel)
+
+            Toast.makeText(requireContext(), "Data Ditambahkan Ke Favorite", Toast.LENGTH_SHORT)
+                .show()
+            binding.btnFavorite.text = getString(R.string.delete_favorite)
+        } else {
+            id?.let { viewModel.deleteFavoriteId(it) }
+            binding.btnFavorite.text = getString(R.string.favorite)
+        }
     }
 
     companion object {

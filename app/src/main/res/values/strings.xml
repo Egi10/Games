@@ -9,4 +9,5 @@
     <string name="favorite">Favorite</string>
     <string name="show_favorite_games">Show Favorite Games</string>
     <string name="title_favorite">Module Title</string>
+    <string name="delete_favorite">Delete Favorite</string>
 </resources>

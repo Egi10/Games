@@ -24,4 +24,5 @@ class GameUseCaseImpl(private val repository: GamesRepository) : GamesUseCase {
 
     override fun getAllFavorite(): Flow<List<FavoriteModel>> = repository.getAllFavorite()
     override fun deleteFavoriteId(id: Int?) = repository.deleteFavoriteId(id)
+    override fun getFavoriteById(id: Int?) = repository.getFavoriteById(id)
 }
