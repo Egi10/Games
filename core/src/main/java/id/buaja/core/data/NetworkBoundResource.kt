@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.*
 abstract class NetworkBoundResource<ResultType, RequestType> {
 
     private var result: Flow<Resource<ResultType>> = flow {
-        emit(Resource.Loading())
+        emit(Resource.Loading(data = null, loading = null))
         val dbSource = loadFromDB().first()
         if (shouldFetch(dbSource)) {
             when (val apiResponse = createCall().first()) {
@@ -42,7 +42,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                 Resource.Success(it)
             })
         }
-    }
+    } as Flow<Resource<ResultType>>
 
     protected abstract fun loadFromDB(): Flow<ResultType>
 

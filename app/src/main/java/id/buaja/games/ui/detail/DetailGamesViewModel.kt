@@ -5,14 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import id.buaja.core.data.Resource
-import id.buaja.core.domain.model.FavoriteModel
 import id.buaja.core.domain.model.GamesDetailModel
 import id.buaja.core.domain.usescase.GamesUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.zip
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 
 class DetailGamesViewModel(private val useCase: GamesUseCase) : ViewModel() {
     private val _success = MutableLiveData<GamesDetailModel>()
@@ -36,17 +35,16 @@ class DetailGamesViewModel(private val useCase: GamesUseCase) : ViewModel() {
                 .collect {
                     when (it) {
                         is Resource.Success -> {
-                            _loading.value = false
                             _success.postValue(it.data)
                         }
 
                         is Resource.Error -> {
-                            _loading.value = false
                             _error.postValue(it.message)
                         }
 
                         is Resource.Loading -> {
-                            _loading.value = true
+                            Timber.tag("Disini").d(it.loading.toString())
+                            _loading.value = it.loading
                         }
                     }
                 }
